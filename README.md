@@ -18,3 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 ## How To Run
 
 make sure the flutter sdk is installed on your pc, then run "flutter run" in your terminal
+
+## Code
+
+the code is in the lib file
