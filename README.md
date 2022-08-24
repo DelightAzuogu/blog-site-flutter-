@@ -1,3 +1,7 @@
+#LINK 
+
+https://delightazuogu.github.io/#/
+
 # project_two
 
 A new Flutter project.
@@ -22,3 +26,5 @@ make sure the flutter sdk is installed on your pc, then run "flutter run" in you
 ## Code
 
 the code is in the lib file
+
+
