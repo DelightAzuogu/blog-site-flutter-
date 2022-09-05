@@ -1,7 +1,9 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:project_two/widget/NavigationBar/mobile_nav.dart';
 
+import 'drop_down_buton.dart';
 import 'nav_bar_button.dart';
 import 'nav_bar_item.dart';
 
@@ -37,53 +39,58 @@ class _NavBarState extends State<NavBar> {
     double width = MediaQuery.of(context).size.width;
     return Column(
       children: [
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 375),
-          curve: Curves.ease,
-          height: (width < 800.0) ? collapsableHeight : 0.0,
-          width: double.infinity,
-          color: const Color(0xff121212),
-          child: SingleChildScrollView(
-            child: Column(
-              children: navBarItems,
-            ),
-          ),
-        ),
         Container(
-          color: const Color(0xff121212),
-          height: 60.0,
+          color: Colors.black,
+          height: 70.0,
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                '',
+                'DELIGHT.',
                 style: TextStyle(
-                  fontSize: 22.0,
-                  color: Color(0xffffffff),
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              LayoutBuilder(builder: (context, constraints) {
-                if (width < 800.0) {
-                  return NavBarButton(
-                    onPressed: () {
-                      if (collapsableHeight == 0.0) {
-                        setState(() {
-                          collapsableHeight = 240.0;
-                        });
-                      } else if (collapsableHeight == 240.0) {
-                        setState(() {
-                          collapsableHeight = 0.0;
-                        });
-                      }
-                    },
-                  );
-                } else {
-                  return Row(
-                    children: navBarItems,
-                  );
-                }
-              })
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  if (width < 800.0) {
+                    return NavBarButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MobileNav(),
+                          ),
+                        );
+                      },
+                    );
+                  } else {
+                    return Row(
+                      children: const [
+                        NavBarItem(
+                          text: 'Home',
+                        ),
+                        DropDownMenu(1),
+                        DropDownMenu(2),
+                        NavBarItem(
+                          text: 'About',
+                        ),
+                        NavBarItem(
+                          text: 'Contact',
+                        ),
+                      ],
+                    );
+                  }
+                },
+              ),
+              if (width > 800)
+                const Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
             ],
           ),
         ),

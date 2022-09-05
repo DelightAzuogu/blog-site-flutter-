@@ -6,6 +6,7 @@ import 'package:project_two/Router/router.dart';
 void main() {
   runApp(
     const MaterialApp(
+      title: "Delight's Blog",
       initialRoute: "/",
       onGenerateRoute: RouterGenerator.generateRoute,
     ),

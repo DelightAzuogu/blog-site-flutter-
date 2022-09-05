@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 // this is the pagination for all the blog page
 
-class Pagination extends StatelessWidget {
+class HomePagination extends StatelessWidget {
   final int page;
-  const Pagination({Key? key, required this.page}) : super(key: key);
+  const HomePagination({Key? key, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class Pagination extends StatelessWidget {
               onTap: () {
                 String pageString = (page + 1).toString();
                 Navigator.of(context).pushNamed(
-                  '/blog/$pageString',
+                  '/home/$pageString',
                   arguments: page + 1,
                 );
               },
@@ -74,7 +74,7 @@ class Pagination extends StatelessWidget {
         onTap: () {
           String pageString = (page).toString();
           Navigator.of(context).pushNamed(
-            '/blog/$pageString',
+            '/home/$pageString',
             arguments: page,
           );
         },

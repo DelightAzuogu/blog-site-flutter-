@@ -1,10 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:project_two/widget/NavigationBar/nav_bar.dart' as navbar;
 
-Color selected = const Color(0xffffffff);
-Color notSelected = const Color(0xafffffff);
+Color selected = Colors.white;
+Color notSelected = Colors.white;
 
 class NavBarItem extends StatefulWidget {
   final String text;
@@ -37,10 +36,9 @@ class _NavBarItemState extends State<NavBarItem> {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          splashColor: Colors.white60,
+          splashColor: Colors.white,
           onTap: () {
             var page = widget.text;
-            navbar.collapsableHeight = 0.0;
             if (page == "Home") {
               Navigator.of(context).pushNamed(
                 '/',

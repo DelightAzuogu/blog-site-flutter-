@@ -11,7 +11,7 @@ class RouterGenerator {
       // this is for the home page
       case "/":
         return MaterialPageRoute(
-          builder: (_) => const Home(),
+          builder: (_) => Home(),
           settings: settings,
         );
       // this is for about page
@@ -48,6 +48,13 @@ class RouterGenerator {
           var page = int.parse(name.split("/")[2]);
           return MaterialPageRoute(
             builder: (_) => Blog(page: page),
+            settings: settings,
+          );
+        }
+        if (name.contains("/home/")) {
+          var page = int.parse(name.split("/")[2]);
+          return MaterialPageRoute(
+            builder: (_) => Home(page: page),
             settings: settings,
           );
         }

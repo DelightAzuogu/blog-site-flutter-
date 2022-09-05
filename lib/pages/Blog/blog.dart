@@ -18,8 +18,10 @@ class Blog extends StatefulWidget {
 
 class _BlogState extends State<Blog> {
   late int currentPage;
+  late double width;
   @override
   Widget build(BuildContext context) {
+    width = MediaQuery.of(context).size.width;
     currentPage = widget.currentPage;
     return Scaffold(
       body: SingleChildScrollView(
@@ -34,13 +36,27 @@ class _BlogState extends State<Blog> {
   }
 
   Widget allView() {
+    final double fontsize = width > 800 ? 60 : 30;
     return Padding(
       padding: const EdgeInsets.only(top: 30),
       child: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50.0),
+            child: Text(
+              "BLOG",
+              style: TextStyle(
+                fontSize: fontsize,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           BlogDisplay(page: currentPage),
-          Pagination(
-            page: currentPage,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 100.0),
+            child: Pagination(
+              page: currentPage,
+            ),
           ),
           BottomNavigator(),
         ],

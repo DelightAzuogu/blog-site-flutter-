@@ -44,6 +44,7 @@ class _ContactState extends State<Contact> {
       children: [
         welcomeImage(2),
         mobileInformation(),
+        contact(),
         BottomNavigator(),
       ],
     );
@@ -123,8 +124,67 @@ class _ContactState extends State<Contact> {
       children: [
         welcomeImage(1),
         informations(),
+        contact(),
         BottomNavigator(),
       ],
+    );
+  }
+
+  Widget contact() {
+    return Padding(
+      padding: width > 800
+          ? const EdgeInsets.only(left: 130, right: 130, bottom: 50)
+          : const EdgeInsets.only(left: 50, right: 50, bottom: 30),
+      child: Column(
+        children: [
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Your Name",
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Your Email",
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Website",
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Website",
+            ),
+            minLines: 6,
+            maxLines: 10,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+        ],
+      ),
     );
   }
 
